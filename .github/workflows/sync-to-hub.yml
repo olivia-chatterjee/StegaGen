@@ -1,0 +1,20 @@
+# Copies this GitHub repository to a Hugging Face Space on every push to main.
+# Setup: add a GitHub secret named HF_TOKEN (a Hugging Face token with write access)
+# and replace YOUR_HF_USERNAME below.
+name: Sync to Hugging Face Space
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: huggingface/hub-sync@v0.1.0
+        with:
+          github_repo_id: ${{ github.repository }}
+          huggingface_repo_id: CassandraBrown/StegaGen
+          hf_token: ${{ secrets.HF_TOKEN }}
+          space_sdk: docker

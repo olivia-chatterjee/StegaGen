@@ -1,3 +1,13 @@
+---
+title: StegaGen
+colorFrom: blue
+colorTo: green
+sdk: docker
+app_port: 8501
+pinned: false
+short_description: Generative coverless steganography with object sets
+---
+
 # StegaGen
 
 StegaGen is an example of Steganography. The code is two Python files:
@@ -17,3 +27,6 @@ streamlit run app.py
 
 ## Streamlit Community Cloud
 Set the main file to `StegaGen/app.py`. `requirements.txt` and `packages.txt` in this folder are used.
+
+## Hugging Face Spaces
+This folder is ready for a **Docker** Space. The front matter at the top of this file tells Hugging Face to build `Dockerfile` and open port 8501. The build downloads `yolo11s.pt` by itself.
