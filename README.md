@@ -1,6 +1,6 @@
 # StegaGen
 
-StegaGen is a short version of StegoArena. The code is two Python files:
+StegaGen is an example of Steganography. The code is two Python files:
 
 * `stego_core.py`: the whole algorithm (key secrets, codebook, prompt, blind decoder) plus a self-test.
 * `app.py`: the Streamlit interface with the tabs **Generate & Verify**, **Decode** and **How It Works**.
