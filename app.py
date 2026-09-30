@@ -165,7 +165,7 @@ reproduce *what* you ask for far more reliably than *where* you ask for it.
 | Objects per image | exactly {core.K} different ones |
 | Message | 1-3 letters A-Z, {core.MESSAGE_COUNT:,} possible messages (15 bits) |
 | Shared key | any secret password known to both sides |
-| Detector | `{core.DETECTOR_WEIGHTS}`, 640 px, CPU, fixed settings |
+| Detector | `{core.DETECTOR_WEIGHTS}`, {core.DETECTOR_SETTINGS['imgsz']} px, CPU, fixed settings |
 
 ### 3. What the shared key does
 
@@ -264,7 +264,8 @@ file, gets the same result.
     example = core.encode("CAT", DEFAULT_KEY)
     st.write(f"Secret residue a = **{book['residue']}**, valid sets = **{len(book['sets']):,}**.")
     st.dataframe(
-        pd.DataFrame({"secret rank": range(core.N), "object": book["order"]}).T,
+        # shown sideways; astype(str) because each column mixes a number and a name
+        pd.DataFrame({"secret rank": range(core.N), "object": book["order"]}).T.astype(str),
         width="stretch",
     )
     st.write(
