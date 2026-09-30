@@ -57,9 +57,10 @@ MIN_GAP = 1.0      # ... and at least this much better than the second best
 # made with either app decode in the other.
 VERSION = "stegoarena-v10-presence-set-3L"
 
-# Object detector settings (also fixed).
+# Object detector settings (also fixed). 960 px input keeps small or distant
+# objects (e.g. a train on a far bridge) large enough for YOLO to detect.
 DETECTOR_WEIGHTS = "yolo11s.pt"
-DETECTOR_SETTINGS = dict(imgsz=640, conf=0.05, iou=0.5, max_det=300, device="cpu", verbose=False)
+DETECTOR_SETTINGS = dict(imgsz=960, conf=0.05, iou=0.5, max_det=300, device="cpu", verbose=False)
 
 
 # =============================================================================
@@ -185,7 +186,7 @@ PHRASES = {
     "kite": "a colourful kite flying in the sky",
     "skateboard": "a skateboard lying on the path",
     "surfboard": "a surfboard leaning against a tree or railing",
-    "tennis racket": "a tennis racket resting on a low wall or blanket",
+    "tennis racket": "a tennis racket standing upright, leaning against the low stone wall, strings facing the camera",
     "teddy bear": "a teddy bear sitting on a picnic blanket",
     "pizza": "a pizza in an open box on a picnic blanket",
     "cake": "a cake on a picnic blanket",
@@ -198,7 +199,7 @@ PHRASES = {
     "sheep": "a sheep grazing in the meadow beyond the park",
     "bus": "a city bus on the road at the far edge of the park",
     "airplane": "an airplane flying low across the sky",
-    "train": "a train crossing a bridge in the background",
+    "train": "a train crossing a bridge, large and clearly visible in the midground, not tiny in the distance",
     "sports ball": "a football (soccer ball) on the grass",
 }
 
